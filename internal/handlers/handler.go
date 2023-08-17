@@ -25,6 +25,8 @@ func CalculateMath(resp http.ResponseWriter, req *http.Request) {
 	expression := sendData.Operation
 	p := mathparse.NewParser(expression)
 
+	p.Resolve()
+
 	if p.FoundResult() {
 		var result float64
 		result = p.GetValueResult()
