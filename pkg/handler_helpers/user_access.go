@@ -1,3 +1,4 @@
+//File with User-Access wrapper
 package handler_helpers
 
 import (
@@ -26,8 +27,10 @@ func CheckUserAccess(h http.HandlerFunc) http.HandlerFunc {
 			return
 		}
 
+		// add User-Access variables for future use (authentication etc.)
 		request = request.WithContext(context.WithValue(request.Context(), UserAccessHeader, UserAccessValue))
 
+		// run main handler for math
 		h.ServeHTTP(writer, request)
 	}
 }

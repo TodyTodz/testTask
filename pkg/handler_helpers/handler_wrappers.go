@@ -11,7 +11,7 @@ import (
 
 
 
-// Recovering after panic in http handler.
+//Recovering after panic in http handler.
 func Recover(h http.Handler) http.Handler {
 	return http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
 		var err error
@@ -36,7 +36,7 @@ func Recover(h http.Handler) http.Handler {
 	})
 }
 
-// Logging requests.
+//Logging requests.
 func LogRequest(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
@@ -50,6 +50,7 @@ func LogRequest(next http.Handler) http.Handler {
 	})
 }
 
+//Common function for responding on http requests
 func Respond(w http.ResponseWriter, data map[string]interface{}, stCode int) {
 	w.Header().Add("Content-Type", "application/json")
 
@@ -64,6 +65,8 @@ func Respond(w http.ResponseWriter, data map[string]interface{}, stCode int) {
 		if data != nil {
 			Logger.Warning("RESPONSE ERROR: ", err, len(data))
 		}
+
+		// this line should be separated in such a way that it does not go beyond the margin
 		err2 := json.NewEncoder(w).Encode(map[string]interface{}{"error": map[string]interface{}{"code": http.StatusBadRequest, "message": "no data"}})
 		if err2 != nil {
 			Logger.Warning("ERROR spare resp")

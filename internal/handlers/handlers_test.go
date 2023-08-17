@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+//Just some tests for imported package
 func TestMath(t *testing.T) {
 	expression := "2+2-3-5+1"
 
