@@ -7,7 +7,7 @@ import (
 )
 
 func main(){
-	httpConfigPath := flag.String("http-config", "/etc/multicheck/configs/http/config.xml",
+	httpConfigPath := flag.String("http-config", "/etc/configs/http/settings.xml",
 		"full path to config file")
 
 	flag.Parse()
