@@ -3,7 +3,10 @@ package handlers
 import (
 	"encoding/json"
 	"net/http"
+
 	"testTask/pkg/handler_helpers"
+
+	"github.com/Maldris/mathparse"
 
 	. "github.com/NGRsoftlab/ngr-logging"
 )
@@ -15,10 +18,22 @@ func CalculateMath(resp http.ResponseWriter, req *http.Request) {
 	err := json.NewDecoder(req.Body).Decode(&sendData)
 	if err != nil {
 		Logger.Error(err)
-		httphelpers.SendErrorResponse(resp, errorCustom.GlobalErrors.ErrBadUnmarshal(), http.StatusBadRequest)
+		handler_helpers.Respond(resp, map[string]interface{}{"error": err.Error()}, http.StatusBadRequest)
 		return
 	}
 
+	expression := sendData.Operation
+	p := mathparse.NewParser(expression)
 
+	if p.FoundResult() {
+		var result float64
+		result = p.GetValueResult()
+		Logger.Debug(result)
+
+		handler_helpers.Respond(resp, map[string]interface{}{"res": result}, http.StatusOK)
+
+	} else {
+		handler_helpers.Respond(resp, map[string]interface{}{"error": "can't solve expression"}, http.StatusBadRequest)
+	}
 
 }

@@ -3,6 +3,7 @@ module testTask
 go 1.18
 
 require (
+	github.com/Maldris/mathparse v0.0.0-20170508133428-f0d009a7a773
 	github.com/NGRsoftlab/ngr-logging v1.0.0
 	github.com/gorilla/mux v1.8.0
 	github.com/rs/cors v1.9.0

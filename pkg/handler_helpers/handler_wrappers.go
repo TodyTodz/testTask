@@ -1,7 +1,6 @@
 package handler_helpers
 
 import (
-	"context"
 	"encoding/json"
 	"errors"
 	"net/http"

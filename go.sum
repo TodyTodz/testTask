@@ -1,3 +1,5 @@
+github.com/Maldris/mathparse v0.0.0-20170508133428-f0d009a7a773 h1:wlDWiY/VYdEGdBQmLBqNHyqSC+Kbdk3tHMX0BWKRjDg=
+github.com/Maldris/mathparse v0.0.0-20170508133428-f0d009a7a773/go.mod h1:3OrYs+fU1ZL6zdhMSS+nSOlv4BV/MYPbjtmT9v3xCWg=
 github.com/NGRsoftlab/ngr-logging v1.0.0 h1:Yp42kvw/bofZ6xXC5jPlPx1HNabZQY9cvzGnB0earJY=
 github.com/NGRsoftlab/ngr-logging v1.0.0/go.mod h1:99kZ+XwSK7rKRitmhZvqOdYnPf9Qepywt3zjJJcJDME=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
